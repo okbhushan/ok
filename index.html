@@ -1,0 +1,1082 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ankur warikoo – Entrepreneur, Author, Content Creator</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --black: #111111;
+    --white: #ffffff;
+    --cream: #faf8f4;
+    --warm-grey: #f5f3ef;
+    --accent: #e8533a;
+    --text-muted: #888;
+    --border: #e0ddd8;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--white);
+    color: var(--black);
+    overflow-x: hidden;
+  }
+
+  a { text-decoration: none; color: inherit; }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: var(--white);
+    border-bottom: 1px solid var(--border);
+    padding: 0 5%;
+    height: 68px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+
+  .nav-logo span { color: var(--accent); }
+
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+    align-items: center;
+  }
+
+  .nav-links a {
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: #444;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--accent); }
+
+  .nav-cta {
+    background: var(--black);
+    color: var(--white) !important;
+    padding: 0.5rem 1.2rem;
+    border-radius: 2px;
+    font-size: 0.8rem !important;
+    transition: background 0.2s !important;
+  }
+
+  .nav-cta:hover { background: var(--accent) !important; color: var(--white) !important; }
+
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 4px;
+  }
+
+  .hamburger span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--black);
+    transition: all 0.3s;
+  }
+
+  /* HERO */
+  .hero {
+    margin-top: 68px;
+    background: var(--cream);
+    padding: 80px 5% 60px;
+    display: grid;
+    grid-template-columns: 1fr 420px;
+    gap: 4rem;
+    align-items: center;
+    min-height: calc(100vh - 68px);
+    max-height: 900px;
+  }
+
+  .hero-tag {
+    display: inline-block;
+    background: var(--accent);
+    color: var(--white);
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.3rem 0.8rem;
+    border-radius: 2px;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.4rem, 4vw, 3.6rem);
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: -0.03em;
+    margin-bottom: 1.5rem;
+    color: var(--black);
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .hero-desc {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: #555;
+    max-width: 480px;
+    margin-bottom: 2.5rem;
+  }
+
+  .hero-btns {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    background: var(--black);
+    color: var(--white);
+    padding: 0.9rem 2rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    border-radius: 2px;
+    transition: background 0.2s, transform 0.2s;
+    display: inline-block;
+  }
+
+  .btn-primary:hover { background: var(--accent); transform: translateY(-1px); }
+
+  .btn-secondary {
+    border: 1.5px solid var(--black);
+    color: var(--black);
+    padding: 0.9rem 2rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    border-radius: 2px;
+    transition: all 0.2s;
+    display: inline-block;
+  }
+
+  .btn-secondary:hover { background: var(--black); color: var(--white); }
+
+  .hero-stats {
+    display: flex;
+    gap: 2.5rem;
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border);
+  }
+
+  .stat-item {}
+
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--black);
+    line-height: 1;
+  }
+
+  .stat-label {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-top: 0.3rem;
+  }
+
+  .hero-image-wrap {
+    position: relative;
+  }
+
+  .hero-image-wrap::before {
+    content: '';
+    position: absolute;
+    top: -20px; right: -20px;
+    width: 100%;
+    height: 100%;
+    background: var(--accent);
+    opacity: 0.12;
+    border-radius: 4px;
+    z-index: 0;
+  }
+
+  .hero-image-wrap img, .hero-image-placeholder {
+    width: 100%;
+    border-radius: 4px;
+    position: relative;
+    z-index: 1;
+    display: block;
+  }
+
+  .hero-image-placeholder {
+    aspect-ratio: 3/4;
+    background: linear-gradient(160deg, #2a2a2a 0%, #1a1a1a 100%);
+    border-radius: 4px;
+    display: flex;
+    align-items: flex-end;
+    padding: 2rem;
+    overflow: hidden;
+  }
+
+  .hero-image-placeholder::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+
+  .hero-img-text {
+    font-family: 'Playfair Display', serif;
+    color: var(--white);
+    font-size: 1.4rem;
+    font-weight: 700;
+    position: relative;
+    z-index: 1;
+    line-height: 1.4;
+  }
+
+  .hero-img-text span {
+    display: block;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 400;
+    opacity: 0.6;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+  }
+
+  /* FEATURED IN */
+  .featured {
+    background: var(--white);
+    padding: 3rem 5%;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .featured-label {
+    text-align: center;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 1.5rem;
+  }
+
+  .featured-logos {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3rem;
+    flex-wrap: wrap;
+  }
+
+  .featured-logos span {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #ccc;
+    letter-spacing: -0.02em;
+    transition: color 0.2s;
+  }
+
+  .featured-logos span:hover { color: #999; }
+
+  /* ABOUT */
+  .about {
+    padding: 100px 5%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: center;
+    background: var(--white);
+  }
+
+  .section-tag {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    display: block;
+    margin-bottom: 1rem;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 3vw, 2.8rem);
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.03em;
+    margin-bottom: 1.5rem;
+  }
+
+  .section-title em { font-style: italic; color: var(--accent); }
+
+  .about-text p {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: #555;
+    margin-bottom: 1.2rem;
+  }
+
+  .about-image {
+    background: var(--warm-grey);
+    border-radius: 4px;
+    aspect-ratio: 4/5;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .about-image::after {
+    content: 'ankur warikoo';
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #aaa;
+    font-style: italic;
+  }
+
+  .about-accent-box {
+    position: absolute;
+    bottom: 2rem;
+    left: 2rem;
+    background: var(--accent);
+    color: var(--white);
+    padding: 1.2rem 1.5rem;
+    border-radius: 2px;
+  }
+
+  .about-accent-box strong {
+    display: block;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    font-weight: 700;
+    line-height: 1;
+  }
+
+  .about-accent-box span {
+    font-size: 0.75rem;
+    opacity: 0.85;
+    margin-top: 0.3rem;
+    display: block;
+    letter-spacing: 0.05em;
+  }
+
+  /* BOOKS */
+  .books {
+    background: var(--black);
+    color: var(--white);
+    padding: 100px 5%;
+  }
+
+  .books-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-bottom: 3.5rem;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .books-header .section-title { color: var(--white); }
+
+  .view-all {
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    color: var(--accent);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    white-space: nowrap;
+  }
+
+  .books-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  .book-card {
+    background: #1a1a1a;
+    border-radius: 4px;
+    overflow: hidden;
+    transition: transform 0.3s;
+    cursor: pointer;
+  }
+
+  .book-card:hover { transform: translateY(-6px); }
+
+  .book-cover {
+    aspect-ratio: 3/4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .bc1 { background: linear-gradient(135deg, #1a3a5c, #0d2137); }
+  .bc2 { background: linear-gradient(135deg, #5c1a1a, #370d0d); }
+  .bc3 { background: linear-gradient(135deg, #1a5c2a, #0d3715); }
+  .bc4 { background: linear-gradient(135deg, #3a1a5c, #200d37); }
+  .bc5 { background: linear-gradient(135deg, #5c4a1a, #37290d); }
+  .bc6 { background: linear-gradient(135deg, #1a4a5c, #0d2b37); }
+
+  .book-cover-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    font-weight: 900;
+    color: var(--white);
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    line-height: 1.3;
+  }
+
+  .book-info {
+    padding: 1.2rem 1.5rem;
+  }
+
+  .book-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 0.3rem;
+  }
+
+  .book-badge {
+    font-size: 0.7rem;
+    color: #f5c842;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  /* CONTENT / SOCIAL */
+  .social-section {
+    padding: 100px 5%;
+    background: var(--cream);
+  }
+
+  .social-header {
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+
+  .social-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+  }
+
+  .social-card {
+    background: var(--white);
+    border-radius: 4px;
+    padding: 2rem;
+    text-align: center;
+    border: 1px solid var(--border);
+    transition: border-color 0.2s, box-shadow 0.2s;
+    cursor: pointer;
+  }
+
+  .social-card:hover {
+    border-color: var(--accent);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.06);
+  }
+
+  .social-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem;
+    font-size: 1.2rem;
+  }
+
+  .si-yt { background: #ffe5e5; color: #ff0000; }
+  .si-ig { background: #ffeaef; color: #e1306c; }
+  .si-li { background: #e5f0ff; color: #0a66c2; }
+  .si-tw { background: #e5f8ff; color: #1da1f2; }
+
+  .social-platform {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 0.4rem;
+  }
+
+  .social-count {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1;
+    margin-bottom: 0.3rem;
+  }
+
+  .social-sub {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+  }
+
+  /* QUOTE */
+  .quote-section {
+    background: var(--accent);
+    color: var(--white);
+    padding: 80px 5%;
+    text-align: center;
+  }
+
+  .quote-text {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.5rem, 3vw, 2.5rem);
+    font-weight: 500;
+    line-height: 1.5;
+    font-style: italic;
+    max-width: 800px;
+    margin: 0 auto 1.5rem;
+  }
+
+  .quote-attr {
+    font-size: 0.85rem;
+    opacity: 0.8;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  /* SPEAKING */
+  .speaking {
+    padding: 100px 5%;
+    background: var(--white);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: center;
+  }
+
+  .speaking-image {
+    background: var(--warm-grey);
+    border-radius: 4px;
+    aspect-ratio: 4/3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .speaking-image::after {
+    content: 'Speaking at TEDx / Corporates';
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #bbb;
+  }
+
+  .speaking-points {
+    list-style: none;
+    margin: 2rem 0;
+  }
+
+  .speaking-points li {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 1.2rem;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #555;
+  }
+
+  .speaking-points li::before {
+    content: '';
+    flex-shrink: 0;
+    width: 6px;
+    height: 6px;
+    background: var(--accent);
+    border-radius: 50%;
+    margin-top: 0.55rem;
+  }
+
+  /* NEWSLETTER */
+  .newsletter {
+    background: var(--warm-grey);
+    padding: 100px 5%;
+    text-align: center;
+  }
+
+  .newsletter-inner {
+    max-width: 540px;
+    margin: 0 auto;
+  }
+
+  .newsletter h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 3vw, 2.5rem);
+    font-weight: 700;
+    margin-bottom: 1rem;
+  }
+
+  .newsletter p {
+    color: #666;
+    font-size: 1rem;
+    line-height: 1.7;
+    margin-bottom: 2rem;
+  }
+
+  .newsletter-form {
+    display: flex;
+    gap: 0;
+    border-radius: 2px;
+    overflow: hidden;
+    border: 1.5px solid var(--black);
+  }
+
+  .newsletter-form input {
+    flex: 1;
+    padding: 0.9rem 1.2rem;
+    font-size: 0.9rem;
+    border: none;
+    outline: none;
+    background: var(--white);
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  .newsletter-form button {
+    background: var(--black);
+    color: var(--white);
+    border: none;
+    padding: 0.9rem 1.5rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: 'DM Sans', sans-serif;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    transition: background 0.2s;
+  }
+
+  .newsletter-form button:hover { background: var(--accent); }
+
+  /* FOOTER */
+  footer {
+    background: var(--black);
+    color: var(--white);
+    padding: 60px 5% 30px;
+  }
+
+  .footer-top {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1fr;
+    gap: 3rem;
+    padding-bottom: 3rem;
+    border-bottom: 1px solid #222;
+    margin-bottom: 2rem;
+  }
+
+  .footer-brand .nav-logo {
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+    display: block;
+  }
+
+  .footer-brand p {
+    font-size: 0.88rem;
+    color: #777;
+    line-height: 1.7;
+    max-width: 260px;
+  }
+
+  .footer-col h4 {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #666;
+    margin-bottom: 1.2rem;
+  }
+
+  .footer-col ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+  }
+
+  .footer-col ul a {
+    font-size: 0.88rem;
+    color: #aaa;
+    transition: color 0.2s;
+  }
+
+  .footer-col ul a:hover { color: var(--accent); }
+
+  .footer-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 0.78rem;
+    color: #555;
+  }
+
+  /* MOBILE NAV OVERLAY */
+  .mobile-nav {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: var(--white);
+    z-index: 200;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+  }
+
+  .mobile-nav.open { display: flex; }
+
+  .mobile-nav a {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--black);
+    transition: color 0.2s;
+  }
+
+  .mobile-nav a:hover { color: var(--accent); }
+
+  .mobile-close {
+    position: absolute;
+    top: 1.5rem;
+    right: 5%;
+    font-size: 2rem;
+    cursor: pointer;
+    background: none;
+    border: none;
+    line-height: 1;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    .hero {
+      grid-template-columns: 1fr;
+      padding: 50px 5%;
+      max-height: none;
+      min-height: auto;
+    }
+    .hero-image-wrap { max-width: 360px; margin: 0 auto; }
+    .about, .speaking { grid-template-columns: 1fr; gap: 3rem; }
+    .books-grid { grid-template-columns: repeat(2, 1fr); }
+    .social-grid { grid-template-columns: repeat(2, 1fr); }
+    .footer-top { grid-template-columns: 1fr 1fr; gap: 2rem; }
+    .nav-links { display: none; }
+    .hamburger { display: flex; }
+  }
+
+  @media (max-width: 600px) {
+    .hero h1 { font-size: 2.2rem; }
+    .books-grid { grid-template-columns: repeat(2, 1fr); gap: 0.8rem; }
+    .social-grid { grid-template-columns: repeat(2, 1fr); }
+    .hero-stats { gap: 1.5rem; }
+    .stat-num { font-size: 1.5rem; }
+    .footer-top { grid-template-columns: 1fr; }
+    .footer-bottom { flex-direction: column; gap: 0.5rem; text-align: center; }
+    .newsletter-form { flex-direction: column; border: none; gap: 0.5rem; }
+    .newsletter-form input { border: 1.5px solid var(--black); border-radius: 2px; }
+    .newsletter-form button { border-radius: 2px; }
+    .speaking { padding: 60px 5%; }
+    .about { padding: 60px 5%; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">ankur <span>warikoo</span></a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#books">Books</a></li>
+    <li><a href="#content">Content</a></li>
+    <li><a href="#speaking">Speaking</a></li>
+    <li><a href="#" class="nav-cta">Connect</a></li>
+  </ul>
+  <div class="hamburger" onclick="document.querySelector('.mobile-nav').classList.add('open')">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- MOBILE NAV -->
+<div class="mobile-nav">
+  <button class="mobile-close" onclick="document.querySelector('.mobile-nav').classList.remove('open')">×</button>
+  <a href="#about" onclick="document.querySelector('.mobile-nav').classList.remove('open')">About</a>
+  <a href="#books" onclick="document.querySelector('.mobile-nav').classList.remove('open')">Books</a>
+  <a href="#content" onclick="document.querySelector('.mobile-nav').classList.remove('open')">Content</a>
+  <a href="#speaking" onclick="document.querySelector('.mobile-nav').classList.remove('open')">Speaking</a>
+  <a href="#" onclick="document.querySelector('.mobile-nav').classList.remove('open')" style="color: var(--accent)">Connect</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-text">
+    <span class="hero-tag">Internet Entrepreneur & Author</span>
+    <h1>Awareness is <em>everything.</em></h1>
+    <p class="hero-desc">Make sure all the choices you make in life come from a point of awareness and not ignorance. Helping 17M+ people build better lives, careers and businesses.</p>
+    <div class="hero-btns">
+      <a href="#books" class="btn-primary">Get My Books</a>
+      <a href="#about" class="btn-secondary">Know More</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-item">
+        <div class="stat-num">17M+</div>
+        <div class="stat-label">Followers</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">6</div>
+        <div class="stat-label">Bestsellers</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">30+</div>
+        <div class="stat-label">Investments</div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-image-wrap">
+    <div class="hero-image-placeholder">
+      <div class="hero-img-text">
+        <span>ankur warikoo</span>
+        Entrepreneur · Author<br>Content Creator
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURED IN -->
+<div class="featured">
+  <p class="featured-label">As Featured On</p>
+  <div class="featured-logos">
+    <span>NDTV</span>
+    <span>Times of India</span>
+    <span>Forbes India</span>
+    <span>YourStory</span>
+    <span>Mint</span>
+    <span>Economic Times</span>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="about-image">
+    <div class="about-accent-box">
+      <strong>2008</strong>
+      <span>Entrepreneur since</span>
+    </div>
+  </div>
+  <div class="about-text">
+    <span class="section-tag">About Warikoo</span>
+    <h2 class="section-title">Building, Writing &amp; <em>Creating</em> every day</h2>
+    <p>warikoo has been an entrepreneur since 2008, was the founding CEO of Groupon India and cofounded nearbuy.com. He is currently building WebVeda and India Genius Challenge.</p>
+    <p>warikoo has been creating content since 2005 and has grown to over 17M+ followers across all popular social media platforms — making him one of India's top content creators.</p>
+    <p>He has written 6 books: <strong>DO EPIC SHIT, GET EPIC SHIT DONE, MAKE EPIC MONEY, BUILD AN EPIC CAREER, BEYOND THE SYLLABUS</strong> and <strong>WINNING PEOPLE WITHOUT LOSING YOURSELF</strong> — all of which became #1 bestsellers in India.</p>
+    <a href="#" class="btn-primary" style="margin-top: 1rem; display: inline-block;">Read More</a>
+  </div>
+</section>
+
+<!-- BOOKS -->
+<section class="books" id="books">
+  <div class="books-header">
+    <div>
+      <span class="section-tag" style="color: #f5c842;">My Books</span>
+      <h2 class="section-title">6 Bestselling <em>Books</em></h2>
+    </div>
+    <a href="#" class="view-all">View All Books →</a>
+  </div>
+  <div class="books-grid">
+    <div class="book-card">
+      <div class="book-cover bc1"><div class="book-cover-title">DO<br>EPIC<br>SHIT</div></div>
+      <div class="book-info">
+        <div class="book-name">Do Epic Shit</div>
+        <div class="book-badge">★ #1 Bestseller</div>
+      </div>
+    </div>
+    <div class="book-card">
+      <div class="book-cover bc2"><div class="book-cover-title">GET<br>EPIC<br>SHIT<br>DONE</div></div>
+      <div class="book-info">
+        <div class="book-name">Get Epic Shit Done</div>
+        <div class="book-badge">★ #1 Bestseller</div>
+      </div>
+    </div>
+    <div class="book-card">
+      <div class="book-cover bc3"><div class="book-cover-title">MAKE<br>EPIC<br>MONEY</div></div>
+      <div class="book-info">
+        <div class="book-name">Make Epic Money</div>
+        <div class="book-badge">★ #1 Bestseller</div>
+      </div>
+    </div>
+    <div class="book-card">
+      <div class="book-cover bc4"><div class="book-cover-title">BUILD<br>AN<br>EPIC<br>CAREER</div></div>
+      <div class="book-info">
+        <div class="book-name">Build An Epic Career</div>
+        <div class="book-badge">★ #1 Bestseller</div>
+      </div>
+    </div>
+    <div class="book-card">
+      <div class="book-cover bc5"><div class="book-cover-title">BEYOND<br>THE<br>SYLLABUS</div></div>
+      <div class="book-info">
+        <div class="book-name">Beyond The Syllabus</div>
+        <div class="book-badge">★ #1 Bestseller</div>
+      </div>
+    </div>
+    <div class="book-card">
+      <div class="book-cover bc6"><div class="book-cover-title">WINNING<br>PEOPLE</div></div>
+      <div class="book-info">
+        <div class="book-name">Winning People Without Losing Yourself</div>
+        <div class="book-badge">★ #1 Bestseller</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOCIAL / CONTENT -->
+<section class="social-section" id="content">
+  <div class="social-header">
+    <span class="section-tag">Social Media</span>
+    <h2 class="section-title">17M+ Strong <em>Community</em></h2>
+  </div>
+  <div class="social-grid">
+    <div class="social-card">
+      <div class="social-icon si-yt">▶</div>
+      <div class="social-platform">YouTube</div>
+      <div class="social-count">4.5M+</div>
+      <div class="social-sub">Subscribers</div>
+    </div>
+    <div class="social-card">
+      <div class="social-icon si-ig">◈</div>
+      <div class="social-platform">Instagram</div>
+      <div class="social-count">5M+</div>
+      <div class="social-sub">Followers</div>
+    </div>
+    <div class="social-card">
+      <div class="social-icon si-li">in</div>
+      <div class="social-platform">LinkedIn</div>
+      <div class="social-count">4M+</div>
+      <div class="social-sub">Followers</div>
+    </div>
+    <div class="social-card">
+      <div class="social-icon si-tw">𝕏</div>
+      <div class="social-platform">Twitter / X</div>
+      <div class="social-count">3.5M+</div>
+      <div class="social-sub">Followers</div>
+    </div>
+  </div>
+</section>
+
+<!-- QUOTE -->
+<div class="quote-section">
+  <p class="quote-text">"The worst thing that can happen to you is not failing — it's succeeding at the wrong thing."</p>
+  <p class="quote-attr">— ankur warikoo</p>
+</div>
+
+<!-- SPEAKING -->
+<section class="speaking" id="speaking">
+  <div class="speaking-image"></div>
+  <div>
+    <span class="section-tag">Speaking</span>
+    <h2 class="section-title">Speak at your <em>event</em></h2>
+    <p style="color: #666; line-height: 1.8; margin-bottom: 1.5rem;">warikoo is an engaging speaker with experience at TEDx, corporate events, college fests, and leadership summits. His talks leave audiences with actionable insights on entrepreneurship, careers, and personal growth.</p>
+    <ul class="speaking-points">
+      <li>Entrepreneurship &amp; Startup Mindset</li>
+      <li>Personal Finance &amp; Wealth Building</li>
+      <li>Career Growth &amp; Life Skills for Students</li>
+      <li>Content Creation &amp; Building an Audience</li>
+    </ul>
+    <a href="#" class="btn-primary">Invite to Speak</a>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<section class="newsletter">
+  <div class="newsletter-inner">
+    <span class="section-tag" style="display: block; text-align: center; margin-bottom: 0.5rem;">Newsletter</span>
+    <h2>warikoo Wanderings</h2>
+    <p>Every Friday, a personal newsletter on growth, books, quotes, and life. Join 300,000+ readers.</p>
+    <div class="newsletter-form">
+      <input type="email" placeholder="Enter your email address">
+      <button>Subscribe</button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <span class="nav-logo">ankur <span>warikoo</span></span>
+      <p>Internet Entrepreneur, Author &amp; Content Creator. Helping millions live a more aware, intentional life.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Explore</h4>
+      <ul>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Books</a></li>
+        <li><a href="#">Speaking</a></li>
+        <li><a href="#">Courses</a></li>
+        <li><a href="#">Wallpapers</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Social</h4>
+      <ul>
+        <li><a href="#">YouTube</a></li>
+        <li><a href="#">Instagram</a></li>
+        <li><a href="#">LinkedIn</a></li>
+        <li><a href="#">Twitter / X</a></li>
+        <li><a href="#">Substack</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="#">Speaking Invite</a></li>
+        <li><a href="#">Media Queries</a></li>
+        <li><a href="#">Collaborations</a></li>
+        <li><a href="#">Newsletter</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2024 ankur warikoo. All rights reserved.</span>
+    <span>Made with ❤️ in India</span>
+  </div>
+</footer>
+
+</body>
+</html>
